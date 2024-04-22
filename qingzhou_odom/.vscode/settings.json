@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/liyu/demo01_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages",
+        "%PYTHONPATH",
+        "/home/liyu/anaconda3/envs/ros/bin/python"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/liyu/demo01_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages",
+        "%PYTHONPATH",
+        "/home/liyu/anaconda3/envs/ros/bin/python"
+    ]
+}

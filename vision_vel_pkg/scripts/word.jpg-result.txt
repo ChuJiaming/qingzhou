@@ -1,0 +1,6 @@
+=====Start detect=====
+ScaleParam(200,160,160,160,0.8,1)
+TextBoxes =0
+文字分割耗时:238.143ms
+总耗时:0.238206s
+=====End detect=====

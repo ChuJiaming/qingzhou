@@ -1,0 +1,3 @@
+<launch>
+    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(find qingzhou_nav)/maps/2021070702" />
+</launch>

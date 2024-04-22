@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/liyu/demo01_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/liyu/catkin_qt/src/class1_ros_qt_demo/include/**",
+        "/home/liyu/demo01_ws/src/cv2/include/**",
+        "/home/liyu/demo01_ws/src/junbiao/include/**",
+        "/home/liyu/demo01_ws/src/rrt_exploration/include/**",
+        "/home/liyu/demo01_ws/src/steer_drive_ros/steer_bot_hardware_gazebo/include/**",
+        "/home/liyu/demo01_ws/src/steer_drive_ros/steer_drive_controller/include/**",
+        "/home/liyu/demo01_ws/src/steer_drive_ros/stepback_and_steerturn_recovery/include/**",
+        "/home/liyu/demo01_ws/src/vadio/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

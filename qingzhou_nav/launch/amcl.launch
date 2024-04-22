@@ -1,0 +1,53 @@
+<launch>
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <!-- Publish scans from best pose at a max of 10 Hz -->
+    <param name="odom_model_type" value="diff"/><!-- 里程计模式为差分 --><!--模型符合高斯模型-->
+
+    <param name="transform_tolerance" value="1.0" /><!--发布变换时间--><!--时间过短会造成卡顿，过长会造成延迟-->
+    <param name="gui_publish_rate" value="10"/><!--可视化发布速率--><!--只跟rviz有关，-1禁用--><!--单位:HZ-->
+    <!--同预测有关-->
+    <param name="min_particles" value="300"/><!--允许最小粒子数-->
+    <param name="max_particles" value="5000"/><!--允许最大粒子数-->
+
+
+    <param name="kld_err" value="0.01"/><!--真实分布与估计分布间最大误差-->
+    <param name="kld_z" value="0.99"/>
+
+    <!-- translation std dev, m -->
+    <!--ODOM参数-->
+
+    <!--修改思路，参照高斯分布,里程计越精确，参数值越小--><!--注意当过小时，如果初始位置错误可能造成粒子不收敛-->
+    <param name="odom_alpha1" value="1.8"/><!--旋转运动旋转噪声--><!--原值:1.5改为1.5-->
+    <param name="odom_alpha2" value="1.0"/><!--平移运动旋转噪声--><!--原值:1.5改为1.0-->
+    <param name="odom_alpha3" value="0.8"/><!--平移运动平移噪声--><!--原值:1.0改为0.8--><!--值要较大原因:由于里程计标定不准确且停止与加速有打滑,要尽量确保平移区域有概率分布-->
+    <param name="odom_alpha4" value="1"/><!--旋转运动平移噪声--><!--原值:1.5改为0.6-->
+
+    <param name="odom_alpha5" value="0.2"/><!--仅omni模型中使用-->
+
+
+
+    <!--雷达参数--><!--尽量别动-->
+     <param name="laser_max_beams" value="30"/><!--更新过滤器在每次扫描过程使用多少均匀间隔光束-->
+    <param name="laser_z_hit" value="0.9"/>
+    <param name="laser_z_short" value="0.05"/>
+    <param name="laser_z_max" value="0.05"/>
+    <param name="laser_z_rand" value="0.5"/>
+    <param name="laser_sigma_hit" value="0.1"/>
+    <param name="laser_lambda_short" value="0.1"/>
+    <param name="laser_lambda_short" value="0.1"/>
+    <param name="laser_model_type" value="likelihood_field"/><!--likelihood_field模型:似然场模型--><!--本模型主要用于动态障碍物的概率去除与添加-->
+    <!-- <param name="laser_model_type" value="beam"/> -->
+    <param name="laser_likelihood_max_dist" value="4.0"/><!--地图上测量障碍物膨胀的最大距离 -->
+
+    <!--更新频率部分-->
+    <param name="update_min_d" value="0.1"/><!--distance分量,调小会对距离预测更快--><!--主管平移-->
+
+
+    <param name="update_min_a" value="0.15"/><!--angle分量,调小会使角度预测频率更高--><!--可改--><!--原值:0.1改为0.15--><!--主管旋转-->
+
+    <param name="odom_frame_id" value="odom"/><!-- 里程计坐标系 -->
+    <param name="base_frame_id" value="base_link"/><!-- 添加机器人基坐标系 -->
+    <param name="global_frame_id" value="map"/><!-- 添加地图坐标系 -->
+
+  </node>
+</launch>
